@@ -1,45 +1,17 @@
 import React from "react";
-import Header from "./Header.js";
-import About from "./About.js";
-import ArticleList from "./ArticleList.js";
-
-// Structured blog data
-const blogData = {
-  name: "My Awesome Blog",
-  about:
-    "This is a blog about various topics, including technology, lifestyle, and more.",
-  image: "images/techie.jpeg", // Optional, will use placeholder if not provided
-  articles: [
-    {
-      title: "First Article",
-      date: "August 1, 2024",
-      preview:
-        "This is a preview of the first article. It discusses the latest trends in technology.",
-    },
-    {
-      title: "Second Article",
-      preview:
-        "This is a preview of the second article. It covers lifestyle tips and advice.",
-    },
-    {
-      title: "Third Article",
-      date: "July 15, 2024",
-      preview:
-        "This is a preview of the third article. It explores recent developments in the industry.",
-    },
-  ],
-};
+import Header from "./Header";
+import About from "./About";
+import ArticleList from "./ArticleList";
+import blogData from "../data/blog";
 
 function App() {
-  const { name, about, image, articles } = blogData;
   return (
     <div className="App">
-      <Header name={name} />
-      <About image={image} text={about} />
-      <ArticleList articles={articles}/>
+      <Header name={blogData.name} />
+      <About image={blogData.image} about={blogData.about} />
+      <ArticleList posts={blogData.posts} />
     </div>
   );
 }
-
 
 export default App;

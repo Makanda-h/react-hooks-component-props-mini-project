@@ -1,19 +1,18 @@
+import React from "react";
 import Article from "./Article";
-import blogData from "../data/blog";
 
-function ArticleList({ articles = [] }) {
-  return (
-    <main>
-      {articles.map((article, index) => (
-        <Article
-          key={index}
-          title={article.title}
-          date={article.date}
-          preview={article.preview}
-        />
-      ))}
-    </main>
-  );
+function ArticleList({ posts }) {
+  const articleComponents = posts.map((post) => (
+    <Article
+      key={post.id}
+      title={post.title}
+      date={post.date}
+      preview={post.preview}
+      minutes={post.minutes}
+    />
+  ));
+
+  return <main>{articleComponents}</main>;
 }
 
 export default ArticleList;
